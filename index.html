@@ -936,6 +936,234 @@
     }
 
     /* ============================
+       無料診断バナー
+    ============================ */
+    .free-banner {
+      margin-top: 48px;
+      background: linear-gradient(135deg, #111 0%, #2a2a2a 100%);
+      border-radius: 16px;
+      padding: 40px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    @media (max-width: 560px) {
+      .free-banner { flex-direction: column; align-items: flex-start; padding: 28px 24px; }
+    }
+
+    .free-banner-left {}
+
+    .free-banner-tag {
+      display: inline-block;
+      background: var(--red);
+      color: var(--white);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      padding: 5px 12px;
+      border-radius: 100px;
+      margin-bottom: 14px;
+    }
+
+    .free-banner-title {
+      font-size: clamp(18px, 3.5vw, 22px);
+      font-weight: 900;
+      color: var(--white);
+      line-height: 1.4;
+      margin-bottom: 8px;
+    }
+
+    .free-banner-desc {
+      font-size: 13px;
+      color: #AAA;
+      line-height: 1.7;
+    }
+
+    .free-banner-btn {
+      flex-shrink: 0;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--white);
+      color: var(--dark);
+      font-size: 14px;
+      font-weight: 700;
+      padding: 14px 28px;
+      border-radius: 100px;
+      text-decoration: none;
+      letter-spacing: 0.03em;
+      transition: opacity 0.2s;
+      white-space: nowrap;
+    }
+    .free-banner-btn:hover { opacity: 0.8; }
+
+    /* ============================
+       プランカード（横スワイプ）
+    ============================ */
+    .plans-scroll-wrap {
+      margin-top: 48px;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: none;
+      padding-bottom: 8px;
+    }
+    .plans-scroll-wrap::-webkit-scrollbar { display: none; }
+
+    .plans-track {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(260px, 1fr));
+      gap: 16px;
+    }
+
+    @media (max-width: 720px) {
+      .plans-track {
+        grid-template-columns: repeat(3, 280px);
+      }
+    }
+
+    .plan-card {
+      scroll-snap-align: start;
+      border: 1.5px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .plan-card--popular {
+      border-color: var(--dark);
+    }
+
+    .plan-card-head {
+      padding: 28px 24px 20px;
+      background: var(--white);
+    }
+
+    .plan-card--popular .plan-card-head {
+      background: var(--dark);
+      color: var(--white);
+    }
+
+    .plan-popular-tag {
+      display: inline-block;
+      background: var(--red);
+      color: var(--white);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      padding: 4px 10px;
+      border-radius: 100px;
+      margin-bottom: 12px;
+    }
+
+    .plan-name {
+      font-size: 18px;
+      font-weight: 900;
+      margin-bottom: 12px;
+    }
+
+    .plan-price {
+      font-size: 32px;
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+
+    .plan-price-note {
+      font-size: 12px;
+      color: #888;
+    }
+
+    .plan-card--popular .plan-price-note { color: #AAA; }
+
+    .plan-card-body {
+      padding: 20px 24px 24px;
+      background: var(--white);
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .plan-items {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 24px;
+      flex: 1;
+    }
+
+    .plan-items li {
+      display: flex;
+      gap: 10px;
+      font-size: 13px;
+      color: var(--dark);
+      line-height: 1.5;
+    }
+
+    .plan-check {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: var(--dark);
+      color: var(--white);
+      font-size: 10px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .plan-option {
+      font-size: 12px;
+      color: var(--mid);
+      background: var(--bg);
+      border-radius: 8px;
+      padding: 10px 12px;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .plan-cta {
+      display: block;
+      text-align: center;
+      background: var(--dark);
+      color: var(--white);
+      font-size: 13px;
+      font-weight: 700;
+      padding: 12px;
+      border-radius: 100px;
+      text-decoration: none;
+      letter-spacing: 0.03em;
+      transition: opacity 0.2s;
+    }
+    .plan-cta:hover { opacity: 0.75; }
+
+    .plan-cta--outline {
+      background: transparent;
+      border: 1.5px solid var(--dark);
+      color: var(--dark);
+    }
+
+    .plans-swipe-hint {
+      display: none;
+      text-align: center;
+      font-size: 12px;
+      color: var(--light);
+      margin-top: 12px;
+    }
+
+    @media (max-width: 720px) {
+      .plans-swipe-hint { display: block; }
+    }
+
+    /* ============================
        フッター
     ============================ */
     footer {
@@ -988,7 +1216,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <!-- ナビ -->
 <nav>
-  <a class="nav-logo" href="#">Owl Care</a>
+  <a class="nav-logo" href="#"><img src="/ogp/logo.png" alt="Owl Care" style="height:28px; display:block;"></a>
   <a class="nav-cta" href="#offer">相談する</a>
 </nav>
 
@@ -1238,38 +1466,89 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="wrap">
     <div class="reveal">
       <span class="sec-label">Offer</span>
-      <h2 class="sec-title">まず、添削セッションから<br>始めましょう。</h2>
+      <h2 class="sec-title">プランを選んで、<br>始めましょう。</h2>
       <p class="sec-lead">高額なコンサルの前に、まず「ズレを知る」ことが最初のステップ。</p>
 
-      <div class="offer-card">
-        <div class="offer-card-head">
-          <span class="offer-limit-tag">LIMITED — 限定受付中</span>
-          <div class="offer-name">添削セッション</div>
-          <div class="offer-price">¥10,000<span style="font-size:18px; font-weight:500; color:#777;">〜</span></div>
-          <div class="offer-price-note">60分 / オンライン / 税込</div>
+      <!-- 無料診断バナー -->
+      <div class="free-banner">
+        <div class="free-banner-left">
+          <span class="free-banner-tag">毎月10社限定 — 審査制</span>
+          <div class="free-banner-title">無料診断、受付中です。</div>
+          <div class="free-banner-desc">まずは無料で事業のズレを診断。<br>審査通過後、担当者よりご連絡します。</div>
         </div>
-        <div class="offer-card-body">
-          <ul class="offer-items">
-            <li><span class="offer-check">✓</span>60分のオンラインセッション</li>
-            <li><span class="offer-check">✓</span>6層モデルでの現状診断</li>
-            <li><span class="offer-check">✓</span>ズレの特定と言語化</li>
-            <li><span class="offer-check">✓</span>改善方向の提示レポート</li>
-            <li><span class="offer-check">✓</span>セッション後の質問対応（48時間）</li>
-          </ul>
-          <div class="contact-options">
-            <a href="#contact" class="contact-btn contact-btn--form">
-              <span class="contact-btn-icon">📋</span> フォームで相談する
-            </a>
-            <a href="mailto:k-sasaki@kemono.co.jp" class="contact-btn contact-btn--mail">
-              <span class="contact-btn-icon">✉</span> メールで相談する
-            </a>
-            <a href="https://lin.ee/pdezAlY" target="_blank" rel="noopener noreferrer" class="contact-btn contact-btn--line">
-              <span class="contact-btn-icon">💬</span> LINEで相談する
-            </a>
+        <a href="#contact" class="free-banner-btn">無料診断に応募する →</a>
+      </div>
+
+      <!-- プランカード -->
+      <div class="plans-scroll-wrap">
+        <div class="plans-track">
+
+          <!-- ライト -->
+          <div class="plan-card">
+            <div class="plan-card-head">
+              <span class="offer-limit-tag" style="margin-bottom:12px;display:inline-block;">先着10社限定 — 初回無料</span>
+              <div class="plan-name">ライト</div>
+              <div style="display:flex;align-items:baseline;gap:10px;">
+                <div class="plan-price" style="text-decoration:line-through;color:#BBB;font-size:22px;">¥10,000</div>
+                <div class="plan-price">¥0</div>
+              </div>
+              <div class="plan-price-note">初回相談 先着10社限定 / 60分 / オンライン / 税抜</div>
+            </div>
+            <div class="plan-card-body">
+              <ul class="plan-items">
+                <li><span class="plan-check">✓</span>60分のオンラインセッション</li>
+                <li><span class="plan-check">✓</span>6層モデルでの現状診断</li>
+                <li><span class="plan-check">✓</span>ズレの特定と言語化</li>
+                <li><span class="plan-check">✓</span>改善方向の提示レポート</li>
+                <li><span class="plan-check">✓</span>セッション後の質問対応（48時間）</li>
+              </ul>
+              <a href="#contact" class="plan-cta plan-cta--outline">相談する →</a>
+            </div>
           </div>
-          <p class="contact-note">相談だけでも歓迎です</p>
+
+          <!-- スタンダード -->
+          <div class="plan-card plan-card--popular">
+            <div class="plan-card-head">
+              <span class="plan-popular-tag">POPULAR</span>
+              <div class="plan-name">スタンダード</div>
+              <div class="plan-price">¥10,000<span style="font-size:16px;font-weight:500;">〜</span></div>
+              <div class="plan-price-note">専門家オプション追加可 / 税抜</div>
+            </div>
+            <div class="plan-card-body">
+              <ul class="plan-items">
+                <li><span class="plan-check">✓</span>ライトの全内容</li>
+                <li><span class="plan-check">✓</span>専門家1人につき +¥10,000</li>
+                <li><span class="plan-check">✓</span>各分野のプロが多角的に診断</li>
+                <li><span class="plan-check">✓</span>複数視点の改善提案</li>
+              </ul>
+              <div class="plan-option">＋ 専門家オプション：デザイン・マーケティング・コピーなど領域別に追加可能</div>
+              <a href="#contact" class="plan-cta">相談する →</a>
+            </div>
+          </div>
+
+          <!-- プレミアム -->
+          <div class="plan-card">
+            <div class="plan-card-head">
+              <div class="plan-name">プレミアム</div>
+              <div class="plan-price">¥50,000<span style="font-size:14px;font-weight:500;color:#888;">/月</span></div>
+              <div class="plan-price-note">月額 / 税抜 / 制作費別途</div>
+            </div>
+            <div class="plan-card-body">
+              <ul class="plan-items">
+                <li><span class="plan-check">✓</span>プロ顧問として月次伴走</li>
+                <li><span class="plan-check">✓</span>診断をもとにメンバーをアサイン</li>
+                <li><span class="plan-check">✓</span>コンセプト・LP・発信の改善実行</li>
+                <li><span class="plan-check">✓</span>月次レポート＋振り返りMTG</li>
+              </ul>
+              <div class="plan-option">※ 制作費用などは別途ご相談</div>
+              <a href="#contact" class="plan-cta plan-cta--outline">相談する →</a>
+            </div>
+          </div>
+
         </div>
       </div>
+      <p class="plans-swipe-hint">← スワイプしてプランを比較 →</p>
+
     </div>
   </div>
 </section>
