@@ -1000,6 +1000,78 @@
     .free-banner-btn:hover { opacity: 0.8; }
 
     /* ============================
+       メンバーカード（横スワイプ）
+    ============================ */
+    .members-scroll-wrap {
+      margin-top: 48px;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: none;
+      padding-bottom: 8px;
+    }
+    .members-scroll-wrap::-webkit-scrollbar { display: none; }
+
+    .members-track {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(180px, 1fr));
+      gap: 16px;
+    }
+
+    @media (max-width: 860px) {
+      .members-track { grid-template-columns: repeat(6, 200px); }
+    }
+
+    .member-card {
+      scroll-snap-align: start;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 12px;
+    }
+
+    .member-photo {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      border-radius: 12px;
+      object-fit: cover;
+      object-position: top;
+      background: var(--bg);
+      filter: grayscale(100%);
+    }
+
+    .member-name {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--dark);
+    }
+
+    .member-role-ja {
+      font-size: 12px;
+      color: var(--mid);
+      line-height: 1.5;
+    }
+
+    .member-role-en {
+      font-size: 11px;
+      color: var(--light);
+      letter-spacing: 0.05em;
+    }
+
+    .members-swipe-hint {
+      display: none;
+      text-align: center;
+      font-size: 12px;
+      color: var(--light);
+      margin-top: 12px;
+    }
+
+    @media (max-width: 860px) {
+      .members-swipe-hint { display: block; }
+    }
+
+    /* ============================
        プランカード（横スワイプ）
     ============================ */
     .plans-scroll-wrap {
@@ -1461,7 +1533,80 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </section>
 
 
-<!-- 7. オファー -->
+<!-- 7. メンバー紹介 -->
+<section class="sec sec--bg" id="members">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="sec-label">Our Experts</span>
+      <h2 class="sec-title">6人のプロが、<br>あなたの事業を見る。</h2>
+      <p class="sec-lead">それぞれの専門領域から、多角的にズレを診断します。</p>
+
+      <div class="members-scroll-wrap">
+        <div class="members-track">
+
+          <div class="member-card">
+            <img class="member-photo" src="https://kemono.co.jp/images/members/5829_mono.jpg" alt="佐々木剛哉">
+            <div>
+              <div class="member-name">佐々木 剛哉</div>
+              <div class="member-role-ja">代表 / クリエイティブディレクター</div>
+              <div class="member-role-en">CEO · Creative Director</div>
+            </div>
+          </div>
+
+          <div class="member-card">
+            <img class="member-photo" src="https://kemono.co.jp/images/members/ikkan.jpg" alt="遠水イッカン">
+            <div>
+              <div class="member-name">遠水 イッカン</div>
+              <div class="member-role-ja">プランニングディレクター</div>
+              <div class="member-role-en">Planning Director</div>
+            </div>
+          </div>
+
+          <div class="member-card">
+            <img class="member-photo" src="https://kemono.co.jp/images/members/kamioka.jpg" alt="上岡伸輔">
+            <div>
+              <div class="member-name">上岡 伸輔</div>
+              <div class="member-role-ja">フォトグラファー</div>
+              <div class="member-role-en">Photographer</div>
+            </div>
+          </div>
+
+          <div class="member-card">
+            <img class="member-photo" src="https://kemono.co.jp/images/members/nojiri.webp" alt="野尻雄太">
+            <div>
+              <div class="member-name">野尻 雄太</div>
+              <div class="member-role-ja">アートディレクター / UI·UX</div>
+              <div class="member-role-en">Art Director · UI/UX · 3DCG</div>
+            </div>
+          </div>
+
+          <div class="member-card">
+            <img class="member-photo" src="https://kemono.co.jp/images/members/aoi.jpg" alt="あおい">
+            <div>
+              <div class="member-name">あおい</div>
+              <div class="member-role-ja">占い師・ヒーラー</div>
+              <div class="member-role-en">Spiritualist · Healer</div>
+            </div>
+          </div>
+
+          <div class="member-card">
+            <img class="member-photo" src="https://kemono.co.jp/images/members/ebi.jpg" alt="海老根由紀">
+            <div>
+              <div class="member-name">海老根 由紀</div>
+              <div class="member-role-ja">コミュニケーションデザイナー</div>
+              <div class="member-role-en">Communication Designer</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <p class="members-swipe-hint">← スワイプしてメンバーを確認 →</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- 8. オファー -->
 <section class="sec" id="offer">
   <div class="wrap">
     <div class="reveal">
