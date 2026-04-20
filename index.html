@@ -1810,6 +1810,33 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
 <script>
+  // 横スクロール（ホイール＆ドラッグ）
+  document.querySelectorAll('.members-scroll-wrap, .plans-scroll-wrap').forEach(el => {
+    // ホイールで横スクロール
+    el.addEventListener('wheel', e => {
+      if (e.deltaY === 0) return;
+      e.preventDefault();
+      el.scrollLeft += e.deltaY;
+    }, { passive: false });
+
+    // ドラッグで横スクロール
+    let isDown = false, startX, scrollLeft;
+    el.addEventListener('mousedown', e => {
+      isDown = true;
+      el.style.cursor = 'grabbing';
+      startX = e.pageX - el.offsetLeft;
+      scrollLeft = el.scrollLeft;
+    });
+    el.addEventListener('mouseleave', () => { isDown = false; el.style.cursor = 'grab'; });
+    el.addEventListener('mouseup', () => { isDown = false; el.style.cursor = 'grab'; });
+    el.addEventListener('mousemove', e => {
+      if (!isDown) return;
+      e.preventDefault();
+      el.scrollLeft = scrollLeft - (e.pageX - el.offsetLeft - startX);
+    });
+    el.style.cursor = 'grab';
+  });
+
   // スクロールフェードイン
   const io = new IntersectionObserver(entries => {
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('on'); });
